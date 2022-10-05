@@ -10,6 +10,7 @@ func StartServer() *gin.Engine {
 	r := gin.Default()
 
 	r.GET("/orders", controllers.GetOrders)
+	r.POST("/order", controllers.CreateOrder)
 
 	return r
 }
