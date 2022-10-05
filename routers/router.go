@@ -6,8 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func ServerRouter() {
+func StartServer() *gin.Engine {
 	r := gin.Default()
 
 	r.GET("/orders", controllers.GetOrders)
+
+	return r
 }
