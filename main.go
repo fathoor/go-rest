@@ -10,6 +10,6 @@ func main() {
 	config.ConnectDB()
 
 	// Server
-	routers.ServerRouter()
-	config.StartServer()
+	PORT := ":" + config.Config.SERVER_PORT
+	routers.StartServer().Run(PORT)
 }
