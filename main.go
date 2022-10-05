@@ -1,15 +1,15 @@
 package main
 
 import (
-	"net/http"
-
-	"github.com/gin-gonic/gin"
+	"go-rest/config"
+	"go-rest/routers"
 )
 
 func main() {
-	r := gin.Default()
+	// Database
+	config.ConnectDB()
 
-	r.GET("/", func(c *gin.Context) { c.JSON(http.StatusOK, gin.H{"message": "Hello World"}) })
-
-	r.Run()
+	// Server
+	routers.ServerRouter()
+	config.StartServer()
 }
