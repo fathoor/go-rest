@@ -58,3 +58,21 @@ func UpdateOrder(c *gin.Context) {
 		}
 	}
 }
+
+func DeleteOrder(c *gin.Context) {
+	DB := config.FetchDB()
+	id := c.Param("orderId")
+
+	order := models.Order{}
+	if err := DB.Where("id = ?", id).First(&order).Error; err != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
+		return
+	} else {
+		if err := DB.Delete(&order).Error; err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		} else {
+			c.JSON(http.StatusOK, gin.H{"message": "Order deleted successfully"})
+		}
+	}
+}
