@@ -9,7 +9,7 @@ import (
 
 type Order struct {
 	Id           int       `json:"-" gorm:"primaryKey"`
-	OrderedAt    time.Time `json:"orderedAt"`
+	OrderedAt    time.Time `json:"orderedAt" gorm:"autoCreateTime"`
 	CustomerName string    `json:"customerName" gorm:"type:varchar(191);not null"`
 	Items        []Item    `json:"items" gorm:"foreignKey:OrderId;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
