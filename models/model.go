@@ -6,7 +6,7 @@ type Order struct {
 	Id           int       `json:"-" gorm:"primaryKey"`
 	OrderedAt    time.Time `json:"orderedAt"`
 	CustomerName string    `json:"customerName" gorm:"type:varchar(191);not null"`
-	Items        []Item    `json:"items" gorm:"foreignKey:OrderId"`
+	Items        []Item    `json:"items" gorm:"foreignKey:OrderId;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
 
 type Item struct {
