@@ -9,8 +9,8 @@ import (
 func StartServer() *gin.Engine {
 	r := gin.Default()
 
+	r.POST("/orders", controllers.CreateOrder)
 	r.GET("/orders", controllers.GetOrders)
-	r.POST("/order", controllers.CreateOrder)
 	r.PUT("/orders/:orderId", controllers.UpdateOrder)
 	r.DELETE("/orders/:orderId", controllers.DeleteOrder)
 
