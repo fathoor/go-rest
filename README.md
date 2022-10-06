@@ -1,41 +1,41 @@
 # <p align="center">Go REST API (Gin, GORM, and PostgreSQL)</p>
 
 ##  <p align="center">DTS Kominfo x Hacktiv8 - Golang 2022</p>
- <p align="center">Repository ini berisi source code untuk pembelajaran Golang di <b>FGA Kominfo x Hacktiv8 2022 - Golang</b>.</p>
+ <p align="center"><i>This repository contains source code for Golang learning in <b>DTS Kominfo x Hacktiv8 2022 - Golang</b>.</i></p>
 
 ***
 
-### Instalasi
-1. Clone repository ini
+### Installation
+1. Clone this repository
 ```bash
 git clone https://github.com/fathoor/go-rest.git
 ```
-2. Masuk ke direktori repository
+2. Access the directory
 ```bash
 cd go-rest
 ```
-3. Jalankan perintah berikut untuk menginstall dependensi
+3. Install dependencies
 ```bash
 go mod tidy
 ```
-4. Konfigurasi nilai variabel pada file `.env`
+4. Configure environment variable in `.env` file
 ```bash
 cp .env.example .env
 ```
-5. Jalankan perintah berikut untuk menjalankan aplikasi
+5. Run the API
 ```bash
 go run main.go
 ```
-6. Tersedia beberapa endpoint yang dapat diakses, antara lain:
+6. There are several endpoints that are accessible:
 
-    | Endpoint | Method | Deskripsi |
+    | Endpoint | Method | Description |
     | --- | --- | --- |
-    | /orders | POST | Menambahkan daftar order |
-    | /orders | GET | Menampilkan seluruh daftar order |
-    | /orders/:orderId | PUT | Mengubah daftar order berdasarkan `orderId` |
-    | /orders/:orderId | DELETE | Menghapus daftar order berdasarkan `orderId` |
+    | `/orders` | *POST* | Add new order |
+    | `/orders` | *GET* | Show all orders |
+    | `/orders/:orderId` | *PUT* | Update order based on `orderId` |
+    | `/orders/:orderId` | *DELETE* | Delete order based on `orderId` |
 
-    Bentuk request body untuk endpoint di atas sebagai berikut:
+    The request body for these endpoints is in `JSON` format, for example:
     ```json
     {
         "customerName": "Customer Name",
